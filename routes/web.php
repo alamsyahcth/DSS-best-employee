@@ -44,4 +44,5 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Analisa Kriteria
     Route::get('admin/analisa-kriteria', 'AnalisaKriteriaController@index');
+    Route::post('admin/analisa-kriteria/check', 'AnalisaKriteriaController@check');
 });
