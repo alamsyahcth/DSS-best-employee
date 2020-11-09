@@ -41,15 +41,13 @@
               @endfor
             </div>
             <div class="col-md-3 border-left">
-              {{-- <?php $data = $count_kriteria; ?>
+              <?php $l = 0; ?>
               @foreach($kriteria2 as $k2)
-                @for($d=0; $d<$count_kriteria; $d++)
-                  @if($k->id != $k2->id)
-                    <input type="hidden" name="k2[]" class="form-control" value="{{ $k2->id }}">
-                    <p class="font-weight-bold">{{ $k2->name }}</p><br>
-                  @endif
-                @endfor
-              @endforeach --}}
+                @if($k2->id >= $k->id)
+                  <input type="hidden" name="k2-{{$l++}}[]" class="form-control" value="{{ $k2->id }}">
+                  <p class="font-weight-bold">{{ $k2->name }}</p><br>
+                @endif
+              @endforeach
             </div>
           </div>
           <hr>
