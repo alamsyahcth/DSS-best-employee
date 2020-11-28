@@ -24,6 +24,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => 'auth'], function () {
     Route::get('admin/dashboard', 'DashboardController@index');
 
+    Route::post('/admin/logout', function() {
+        Session::flush();
+        Auth::logout();
+        return redirect('/login');
+    });
+
     //Nilai
     Route::get('admin/nilai', 'NilaiController@index');
     Route::post('admin/nilai/create', 'NilaiController@store');
@@ -45,4 +51,5 @@ Route::group(['middleware' => 'auth'], function () {
     //Analisa Kriteria
     Route::get('admin/analisa-kriteria', 'AnalisaKriteriaController@index');
     Route::post('admin/analisa-kriteria/check', 'AnalisaKriteriaController@check');
+    Route::get('admin/analisa-kriteria/hasil/{id}', 'AnalisaKriteriaController@result');
 });

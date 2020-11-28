@@ -4,6 +4,7 @@
 @section('content_header')
   <h1>Analisa Kriteria</h1>
   <h6 class="text-secondary">Analisa Kriteria Untuk Bobot Kriteria</h6>
+  <a href="{{ url('admin/analisa-kriteria/hasil/A-2020-11-28747') }}" class="btn btn-md btn-primary">Lihat Hasil</a>
 @stop
 @section('content')
 <section class="mb-5">
@@ -25,6 +26,7 @@
         </div>
         <hr>
         <div class="form">
+          <?php  $flag = $count_kriteria; ?>
           @foreach($kriteria as $k)
           <div class="row">
             <div class="col-md-3 d-flex align-items-center justify-content-center text-center border-right">
@@ -33,25 +35,30 @@
             </div>
             <div class="col-md-6">
               @for($i=0; $i<$count_kriteria; $i++)
-              <select class="form-control" name="n-{{$i}}[]">
-                @foreach($nilai as $n)
-                  <option value="{{ $n->grade_total }}">{{$n->grade_total}} - {{ $n->definition}}</option>
-                @endforeach
-              </select><br>
+                <select class="form-control" name="n-{{$i}}[]">
+                  @foreach($nilai as $n)
+                    <option value="{{ $n->grade_total }}">{{$n->grade_total}} - {{ $n->definition}}</option>
+                  @endforeach
+                </select><br>
               @endfor
             </div>
-            <div class="col-md-3 border-left">
-              <?php $l = 0; ?>
+            {{-- <div class="col-md-3 border-left">
               @foreach($kriteria2 as $k2)
                 @if($k2->id >= $k->id)
                   <input type="hidden" name="k2-{{$l++}}[]" class="form-control" value="{{ $k2->id }}">
                   <p class="font-weight-bold">{{ $k2->name }}</p><br>
                 @endif
               @endforeach
+            </div> --}}
+            <div class="col-md-3 border-left">
+              @foreach($kriteria2 as $k2)
+                <input type="hidden" name="k2[]" class="form-control" value="{{ $k2->id }}">
+                <p class="font-weight-bold">{{ $k2->name }}</p><br>
+              @endforeach
             </div>
           </div>
           <hr>
-          <?php $count_kriteria = $count_kriteria-1; ?>
+          <?php $flag = $flag-1; ?>
           @endforeach
         </div>
       </div>

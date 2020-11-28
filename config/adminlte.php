@@ -190,7 +190,7 @@ return [
 
     'dashboard_url' => 'home',
 
-    'logout_url' => 'logout',
+    'logout_url' => 'admin/logout',
 
     'login_url' => 'login',
 
@@ -200,7 +200,7 @@ return [
 
     'password_email_url' => 'password/email',
 
-    'profile_url' => true,
+    'profile_url' => false,
 
     /*
     |--------------------------------------------------------------------------

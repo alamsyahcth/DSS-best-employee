@@ -14,7 +14,7 @@
             <div class="form-group">
               <input type="hidden" name="id" id="id">
               <label for="grade_total" class="control-label">Grade Total</label>
-              <input type="number" name="grade_total" id="grade-total" class="form-control @error('grade_total') is-invalid @enderror" autocomplete="grade_total"/>
+              <input type="number" name="grade_total" id="grade-total" class="form-control @error('grade_total') is-invalid @enderror" autocomplete="grade_total" step="any" min="0.000" max="20.999"/>
               @error('grade_total')
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>
