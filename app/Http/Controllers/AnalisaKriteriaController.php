@@ -51,6 +51,21 @@ class AnalisaKriteriaController extends Controller {
         foreach($kriteria as $k) {
             $sum[] = AnalisaKriteria::where('id_kriteria_2','=',$k->id)->sum('nilai_analisa_kriteria');
         }
+        $i=0;
+        foreach($nilai_analisa_kriteria as $n) {
+            // $row[] = $n->nilai_analisa_kriteria/$sum[$i++];
+            $data=AnalisaKriteria::where('id',$n->id)->update(['analisa_kriterias.hasil_analisa_kriteria'=>($n->nilai_analisa_kriteria/$sum[$i++])]);
+            if($i==$count_kriteria) {
+                $i=0;
+            }
+        }
+        foreach($kriteria as $k) {
+            $sum2[] = AnalisaKriteria::where('id_kriteria_1','=',$k->id)->sum('hasil_analisa_kriteria');
+            Criteria::where('id',$k->id)->update(['criterias.total_criteria'=>(AnalisaKriteria::where('id_kriteria_1','=',$k->id)->sum('hasil_analisa_kriteria'))]);
+        }
+        foreach($kriteria as $k) {
+            Criteria::where('id',$k->id)->update(['criterias.weight_criteria'=>($k->total_criteria/$count_kriteria)]);
+        }
         return view('admin.analisa-kriteria.result', compact(['kriteria','kriteria2','nilai_analisa_kriteria','count_kriteria','sum']));
     }
 }

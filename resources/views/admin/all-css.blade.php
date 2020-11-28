@@ -12,4 +12,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
+  .bg-soft-warning{
+    background-color: #fff7cc;
+  }
 </style>
