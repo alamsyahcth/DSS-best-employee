@@ -50,6 +50,7 @@ class AnalisaKriteriaController extends Controller {
         $nilai_analisa_kriteria = AnalisaKriteria::where('id_analisa_kriteria',$id)->get();
         foreach($kriteria as $k) {
             $sum[] = AnalisaKriteria::where('id_kriteria_2','=',$k->id)->sum('nilai_analisa_kriteria');
+            Criteria::where('id',$k->id)->update(['criterias.total_add_criteria'=>(AnalisaKriteria::where('id_kriteria_2','=',$k->id)->sum('nilai_analisa_kriteria'))]);
         }
         $i=0;
         foreach($nilai_analisa_kriteria as $n) {
@@ -66,6 +67,47 @@ class AnalisaKriteriaController extends Controller {
         foreach($kriteria as $k) {
             Criteria::where('id',$k->id)->update(['criterias.weight_criteria'=>($k->total_criteria/$count_kriteria)]);
         }
-        return view('admin.analisa-kriteria.result', compact(['kriteria','kriteria2','nilai_analisa_kriteria','count_kriteria','sum']));
+
+        //Jumlah Max
+        $sumMaks=0;
+        $countMax=0;
+        foreach($kriteria as $k) {
+            $maks[] = $k->total_add_criteria*$k->weight_criteria;
+            $sumMaks=$sumMaks+$maks[$countMax++];
+        }
+        $dataSumMax = $sumMaks;
+
+        //Menghitung index konsistensi CI
+        $ci = ($dataSumMax-$count_kriteria)/($count_kriteria-1);
+
+        //Menghitung Rasio Konsistensi CR
+        if($count_kriteria == 1) {
+            $ri = 0;
+        } else if($count_kriteria == 2) {
+            $ri = 0;
+        } else if($count_kriteria == 3) {
+            $ri = 0.58;
+        } else if($count_kriteria == 4) {
+            $ri = 0.9;
+        } else if($count_kriteria == 5) {
+            $ri = 1.12;
+        } else if($count_kriteria == 6) {
+            $ri = 1.24;
+        } else if($count_kriteria == 7) {
+            $ri = 1.32;
+        } else if($count_kriteria == 8) {
+            $ri = 1.41;
+        } else if($count_kriteria == 9) {
+            $ri = 1.45;
+        } else if($count_kriteria == 10) {
+            $ri = 1.49;
+        } else if($count_kriteria == 11) {
+            $ri = 1.51;
+        } else if($count_kriteria == 12) {
+            $ri = 1.48;
+        }
+        $cr = $ci/$ri;
+
+        return view('admin.analisa-kriteria.result', compact(['kriteria','kriteria2','nilai_analisa_kriteria','count_kriteria','sum','dataSumMax','ci','cr']));
     }
 }

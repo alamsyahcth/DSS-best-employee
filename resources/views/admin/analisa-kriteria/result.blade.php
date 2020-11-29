@@ -69,12 +69,40 @@
             <td class="text-center font-weight-bold bg-soft-warning">{{ number_format((float)$k2->weight_criteria, 3, '.', '') }}</td>
           </tr>
         @endforeach
-        {{-- <tr class="bg-warning">
-          <td class="text-right font-weight-bold">Jumlah</td>
-          @foreach($row as $data_row)
-            <td class="text-center font-weight-bold">{{ $data_row }}</td>
-          @endforeach
-        </tr> --}}
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h6 class="mb-0 font-weight-bold">C. Perhitungan RAsio</h6>
+    </div>
+    <div class="card-body">
+      <table class="table table-bordered table-hover">
+        <tr>
+          <td class="font-weight-bold text-center">Kriteria</td>
+          <td class="font-weight-bold text-center">Jumlah</td>
+          <td class="font-weight-bold text-center">Prioritas</td>
+        </tr>
+        @foreach($kriteria as $k)
+          <tr>
+            <td class="text-center">{{ $k->name }}</td>
+            <td class="text-center">{{ $k->total_add_criteria }}</td>
+            <td class="text-center">{{ number_format((float)$k->weight_criteria, 3, '.', '') }}</td>
+          </tr>
+        @endforeach
+        <tr>
+          <td class="bg-warning font-weight-bold text-center">Jumlah Maks</td>
+          <td class="bg-soft-warning text-center" colspan="2">{{ number_format((float)$dataSumMax, 3, '.', '') }}</td>
+        </tr>
+        <tr>
+          <td class="bg-warning font-weight-bold text-center">Index Konsistensi (CI)</td>
+          <td class="bg-soft-warning text-center" colspan="2">{{ number_format((float)$ci, 3, '.', '') }}</td>
+        </tr>
+        <tr>
+          <td class="bg-warning font-weight-bold text-center">Rasio Konsistensi (CR)</td>
+          <td class="bg-soft-warning text-center" colspan="2">{{ number_format((float)$cr, 3, '.', '') }}</td>
+        </tr>
       </table>
     </div>
   </div>

@@ -4,7 +4,7 @@
 @section('content_header')
   <h1>Analisa Kriteria</h1>
   <h6 class="text-secondary">Analisa Kriteria Untuk Bobot Kriteria</h6>
-  <a href="{{ url('admin/analisa-kriteria/hasil/A-2020-11-28747') }}" class="btn btn-md btn-primary">Lihat Hasil</a>
+  <a href="{{ url('admin/analisa-kriteria/hasil/A-2020-11-28903') }}" class="btn btn-md btn-primary">Lihat Hasil</a>
 @stop
 @section('content')
 <section class="mb-5">

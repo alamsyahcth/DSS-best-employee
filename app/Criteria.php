@@ -11,6 +11,7 @@ class Criteria extends Model
         'criteria_code',
         'name',
         'total_criteria',
+        'total_add_criteria	',
         'weight_criteria',
     ];
 }

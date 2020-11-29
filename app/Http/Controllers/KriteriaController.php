@@ -20,6 +20,7 @@ class KriteriaController extends Controller {
             $data->criteria_code = 'K'.rand(10,99);;
             $data->name = $request->name;
             $data->total_criteria = 0;
+            $data->total_add_criteria = 0;
             $data->weight_criteria = 0;
             if($data->save()) {
                 return redirect('admin/kriteria')->with('success','Data Berhasil Disimpan');
