@@ -52,4 +52,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('admin/analisa-kriteria', 'AnalisaKriteriaController@index');
     Route::post('admin/analisa-kriteria/check', 'AnalisaKriteriaController@check');
     Route::get('admin/analisa-kriteria/hasil/{id}', 'AnalisaKriteriaController@result');
+
+    //Analisa Alternatif
+    Route::get('admin/analisa-alternatif', 'AnalisaAlternatifController@index');
+    Route::post('admin/analisa-alternatif/check', 'AnalisaAlternatifController@check');
+    Route::get('admin/analisa-alternatif/hasil/{id}', 'AnalisaAlternatifController@result');
+
+    //Hasil Perhitungan
+    Route::get('admin/hasil/{id}', 'AnalisaAlternatifController@final_result');
 });

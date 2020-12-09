@@ -272,7 +272,7 @@ return [
         ],
         [
             'text' => 'Analisa Alternatif',
-            'url'  => 'admin/criteria',
+            'url'  => 'admin/analisa-alternatif',
             'icon' => 'fas fa-fw fa-chart-pie',
         ],
         [

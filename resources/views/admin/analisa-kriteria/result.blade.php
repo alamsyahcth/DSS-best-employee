@@ -33,7 +33,9 @@
         <tr>
           <td class="text-right font-weight-bold bg-warning">Jumlah</td>
           @foreach($sum as $data_sum)
-            <td class="text-center font-weight-bold bg-soft-warning">{{ $data_sum }}</td>
+            <td class="text-center font-weight-bold bg-soft-warning">
+              {{ $data_sum }}
+            </td>
           @endforeach
         </tr>
       </table>
