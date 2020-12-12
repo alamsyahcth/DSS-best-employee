@@ -277,14 +277,19 @@ return [
         ],
         [
             'text' => 'Hasil Penerimaan',
-            'url'  => 'admin/employee',
+            'url'  => 'admin/hasil',
             'icon' => 'fas fa-fw fa-chart-area',
         ],
         
         ['header' => 'Laporan'],
         [
-            'text' => 'Laporan Hasil Analisa',
-            'url'  => 'admin/grade',
+            'text' => 'Laporan Hasil Keputusan',
+            'url'  => 'admin/laporan-hasil-keputusan',
+            'icon' => 'fas fa-fw fa-book-open',
+        ],
+        [
+            'text' => 'Laporan Bobot Kriteria',
+            'url'  => 'admin/laporan-bobot-kriteria',
             'icon' => 'fas fa-fw fa-book-open',
         ],
     ],

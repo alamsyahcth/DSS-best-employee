@@ -4,7 +4,7 @@
 @section('content_header')
   <h1>Analisa Alternatif</h1>
   <h6 class="text-secondary">Analisa Alternatif Untuk Menentukan Nilai</h6>
-  <a href="{{ url('admin/analisa-alternatif/hasil/ALT-2020-12-09799') }}" class="btn btn-md btn-primary">Lihat Hasil</a>
+  {{-- <a href="{{ url('admin/analisa-alternatif/hasil/ALT-2020-12-09799') }}" class="btn btn-md btn-primary">Lihat Hasil</a> --}}
 @stop
 @section('content')
 <section class="mb-5">
@@ -29,7 +29,7 @@
         </div>
         <hr>
         <div class="form">
-          <?php $flag=1; ?>
+          @php $flag=1; @endphp
           @foreach($karyawan as $k)
           <div class="row">
             <div class="col-md-3 d-flex align-items-center justify-content-center text-center border-right">
@@ -49,14 +49,14 @@
               @endforeach
             </div>
             <div class="col-md-3 border-left">
-              <?php $i=1; ?>
+              @php $i=1; @endphp
               @foreach($kriteria as $kriterias)
                 <input type="number" name="grades[]" class="form-control mb-1" value="" placeholder="{{ $kriterias->name }}" step="any" min="0.000" max="100.999" required>
               @endforeach
             </div>
           </div>
           <hr>
-          <?php $flag++; ?>
+          @php $flag++; @endphp
           @endforeach
         </div>
       </div>

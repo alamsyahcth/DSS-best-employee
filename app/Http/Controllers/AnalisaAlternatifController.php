@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 use App\Grade;
 use App\Criteria;
 use App\AnalisaKriteria;
@@ -44,7 +45,7 @@ class AnalisaAlternatifController extends Controller {
                 $data->save();
             }
         }
-        return redirect('admin/analisa-alternatif');
+        return redirect('admin/analisa-alternatif/hasil/'.$code)->with('success','Data Berhasil Disimpan');
     }
 
     public function result($id) {
@@ -56,14 +57,18 @@ class AnalisaAlternatifController extends Controller {
     }
 
     public function final_result($id) {
-        $karyawan = Employee::get();
-        foreach($karyawan as $k) {
-            $grade[] = FinalScore::where('alternative_code','=',$id)
-                            ->where('employee_id','=',$k->id)
-                            ->select(FinalScore::raw('SUM(total_criteria_alternative) as sum_result'))
-                            ->groupBy('employee_id')
+        // $karyawan = Employee::get();
+        // foreach($karyawan as $k) {
+        //     $grade[] = FinalScore::where('alternative_code','=',$id)
+        //                     ->where('employee_id','=',$k->id)
+        //                     ->sum('total_criteria_alternative');
+        // }
+
+        $grade = DB::table('employees')->join('final_scores','final_scores.employee_id','=','employees.id')
+                            ->select('employees.id','employees.name',DB::raw('SUM(total_criteria_alternative) as total_sum'))
+                            ->groupBy('employees.id')
+                            ->orderBy('total_sum','desc')
                             ->get();
-        }
-        return view('admin.hasil.index', compact(['karyawan','grade']));
+        return view('admin.hasil.result', compact(['grade']));
     }
 }

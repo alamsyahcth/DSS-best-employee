@@ -40,7 +40,7 @@ class AnalisaKriteriaController extends Controller {
                 $data->save();
             }
         }
-        return redirect('admin/analisa-kriteria')->with('success','Data Berhasil Disimpan');
+        return redirect('admin/analisa-kriteria/hasil/'.$code)->with('success','Data Berhasil Disimpan');
     }
 
     public function result($id) {

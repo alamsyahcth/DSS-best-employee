@@ -4,7 +4,7 @@
 @section('content_header')
   <h1>Analisa Kriteria</h1>
   <h6 class="text-secondary">Analisa Kriteria Untuk Bobot Kriteria</h6>
-  <a href="{{ url('admin/analisa-kriteria/hasil/A-2020-11-28903') }}" class="btn btn-md btn-primary">Lihat Hasil</a>
+  {{-- <a href="{{ url('admin/analisa-kriteria/hasil/A-2020-11-28903') }}" class="btn btn-md btn-primary">Lihat Hasil</a> --}}
 @stop
 @section('content')
 <section class="mb-5">
@@ -26,7 +26,7 @@
         </div>
         <hr>
         <div class="form">
-          <?php  $flag = $count_kriteria; ?>
+          @php  $flag = $count_kriteria; @endphp
           @foreach($kriteria as $k)
           <div class="row">
             <div class="col-md-3 d-flex align-items-center justify-content-center text-center border-right">
@@ -35,7 +35,7 @@
             </div>
             <div class="col-md-6">
               @for($i=0; $i<$count_kriteria; $i++)
-                <select class="form-control" name="n-{{$i}}[]">
+                <select class="form-control" name="n-{{$i}}[]" required>
                   @foreach($nilai as $n)
                     <option value="{{ $n->grade_total }}">{{$n->grade_total}} - {{ $n->definition}}</option>
                   @endforeach
@@ -58,7 +58,7 @@
             </div>
           </div>
           <hr>
-          <?php $flag = $flag-1; ?>
+          @php $flag = $flag-1; @endphp
           @endforeach
         </div>
       </div>

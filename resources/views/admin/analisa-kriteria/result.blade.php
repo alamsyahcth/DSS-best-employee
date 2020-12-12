@@ -107,6 +107,9 @@
         </tr>
       </table>
     </div>
+    <div class="card-footer text-right">
+      <a href="{{ url('/admin/analisa-alternatif') }}" class="btn btn-md btn-primary btn-block"><i class="fas fa-calculator"></i> Beri Nilai Alternatif</a>
+    </div>
   </div>
 </section>
 @stop
