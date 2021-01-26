@@ -6,26 +6,51 @@
 @stop
 @section('content')
 <section id="banner">
-  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="https://cdn.pixabay.com/photo/2015/01/08/18/25/startup-593327_1280.jpg" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="https://cdn.pixabay.com/photo/2015/01/08/18/25/startup-593327_1280.jpg" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="https://cdn.pixabay.com/photo/2015/01/08/18/25/startup-593327_1280.jpg" class="d-block w-100" alt="...">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="small-box pt-2 bg-info">
+        <div class="inner">
+          <h5>Analisa Kriteria</h5>
+        </div>
+        <div class="icon">
+          <i class="ion ion-person-add"></i>
+        </div>
+        <a href="{{ url('admin/karyawan') }}" class="small-box-footer">Lihat <i class="fas fa-arrow-circle-right"></i></a>
       </div>
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
+    <div class="col-md-3">
+      <div class="small-box pt-2 bg-success">
+        <div class="inner">
+          <h5>Analisa Kriteria</h5>
+        </div>
+        <div class="icon">
+          <i class="ion ion-person-add"></i>
+        </div>
+        <a href="{{ url('admin/analisa-kriteria') }}" class="small-box-footer">Lihat <i class="fas fa-arrow-circle-right"></i></a>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="small-box pt-2 bg-primary">
+        <div class="inner">
+          <h5>Analisa Alternatif</h5>
+        </div>
+        <div class="icon">
+          <i class="ion ion-person-add"></i>
+        </div>
+        <a href="{{ url('admin/analisa-alternatif') }}" class="small-box-footer">Lihat <i class="fas fa-arrow-circle-right"></i></a>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="small-box pt-2 bg-warning">
+        <div class="inner">
+          <h5>Hasil Penerimaan</h5>
+        </div>
+        <div class="icon">
+          <i class="ion ion-person-add"></i>
+        </div>
+        <a href="{{ url('admin/hasil') }}" class="small-box-footer">Lihat <i class="fas fa-arrow-circle-right"></i></a>
+      </div>
+    </div>
   </div>
 </section>
 @stop

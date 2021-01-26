@@ -39,9 +39,6 @@
         @endforeach
       </table>
     </div>
-    <div class="card-footer">
-      <form class="form-horizontal" method="post" action="">
-    </div>
   </div>
 </section>
 @stop

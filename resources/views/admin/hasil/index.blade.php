@@ -14,7 +14,7 @@
         @csrf
         <div class="form">
           <div class="form-group row">
-            <div class="col-md-10">
+            <div class="col-md-12">
               <label for="alternative_code" class="control-label">Kode Alternatif</label>
               <select class="form-control" name="alternative_code">
                 @foreach($data as $d)
@@ -22,7 +22,7 @@
                 @endforeach
               </select>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-12 mt-3">
               <button type="submit" class="btn btn-primary btn-md btn-block"><i class="fas fa-search"></i> Tampilkan</button>
             </div>
           </div>
